@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:flutter/material.dart';
 
 class WelcomeScreen extends StatefulWidget {
@@ -35,7 +37,31 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                     color: Theme.of(context).colorScheme.tertiary,
                   ),
                 ),
-              )
+              ),
+              Align(
+                alignment: const AlignmentDirectional(-2.7, -1.2),
+                child: Container(
+                  width: MediaQuery.of(context).size.width / 1.3,
+                  height: MediaQuery.of(context).size.width / 1.3,
+                  decoration: BoxDecoration(
+                    color: Theme.of(context).colorScheme.secondary,
+                  ),
+                ),
+              ),
+              Align(
+                alignment: const AlignmentDirectional(2.7, -1.2),
+                child: Container(
+                  width: MediaQuery.of(context).size.width / 1.3,
+                  height: MediaQuery.of(context).size.width / 1.3,
+                  decoration: BoxDecoration(
+                    color: Theme.of(context).colorScheme.primary,
+                  ),
+                ),
+              ),
+              BackdropFilter(
+                filter: ImageFilter.blur(sigmaX: 100.0, sigmaY: 100.0),
+                child: Container(),
+              ),
             ],
           ),
         ),
