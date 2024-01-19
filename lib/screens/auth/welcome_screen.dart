@@ -62,6 +62,56 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                 filter: ImageFilter.blur(sigmaX: 100.0, sigmaY: 100.0),
                 child: Container(),
               ),
+              Align(
+                alignment: Alignment.bottomCenter,
+                child: SizedBox(
+                  height: MediaQuery.of(context).size.height / 1.8,
+                  child: Column(
+                    children: [
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 50),
+                        child: TabBar(
+                          controller: tabController,
+                          unselectedLabelColor: Theme.of(context)
+                              .colorScheme
+                              .onBackground
+                              .withOpacity(0.5),
+                          labelColor: Theme.of(context).colorScheme.onBackground,
+                          tabs: const [
+                            Padding(
+                              padding: EdgeInsets.all(12.0),
+                              child: Text(
+                                'Sign In',
+                                style: TextStyle(
+                                  fontSize: 18,
+                                ),
+                              ),
+                            ),
+                            Padding(
+                              padding: EdgeInsets.all(8.0),
+                              child: Text(
+                                'Sign Up',
+                                style: TextStyle(
+                                  fontSize: 18,
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Expanded(
+                        child: TabBarView(
+                          controller: tabController,
+                          children: [
+                            Container(),
+                            Container(),
+                          ],
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+              )
             ],
           ),
         ),
