@@ -1,6 +1,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:login_auth_bloc/screens/auth/sign_in_screen.dart';
 
 class WelcomeScreen extends StatefulWidget {
   const WelcomeScreen({super.key});
@@ -29,7 +30,7 @@ class _WelcomeScreenState extends State<WelcomeScreen>
           child: Stack(
             children: [
               Align(
-                alignment: const AlignmentDirectional(20, -1.2),
+                alignment: const AlignmentDirectional(0, -1.5),
                 child: Container(
                   width: MediaQuery.of(context).size.width,
                   height: MediaQuery.of(context).size.width,
@@ -39,20 +40,20 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                 ),
               ),
               Align(
-                alignment: const AlignmentDirectional(-2.7, -1.2),
+                alignment: const AlignmentDirectional(-1, -1.4),
                 child: Container(
-                  width: MediaQuery.of(context).size.width / 1.3,
-                  height: MediaQuery.of(context).size.width / 1.3,
+                  width: MediaQuery.of(context).size.width / 2,
+                  height: MediaQuery.of(context).size.width / 1.5,
                   decoration: BoxDecoration(
                     color: Theme.of(context).colorScheme.secondary,
                   ),
                 ),
               ),
               Align(
-                alignment: const AlignmentDirectional(2.7, -1.2),
+                alignment: const AlignmentDirectional(1, -1.4),
                 child: Container(
-                  width: MediaQuery.of(context).size.width / 1.3,
-                  height: MediaQuery.of(context).size.width / 1.3,
+                  width: MediaQuery.of(context).size.width / 2,
+                  height: MediaQuery.of(context).size.width / 1.5,
                   decoration: BoxDecoration(
                     color: Theme.of(context).colorScheme.primary,
                   ),
@@ -76,7 +77,8 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                               .colorScheme
                               .onBackground
                               .withOpacity(0.5),
-                          labelColor: Theme.of(context).colorScheme.onBackground,
+                          labelColor:
+                              Theme.of(context).colorScheme.onBackground,
                           tabs: const [
                             Padding(
                               padding: EdgeInsets.all(12.0),
@@ -103,7 +105,7 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                         child: TabBarView(
                           controller: tabController,
                           children: [
-                            Container(),
+                            const SignInScreen(),
                             Container(),
                           ],
                         ),
