@@ -37,11 +37,46 @@ class _SignInScreenState extends State<SignInScreen> {
               validator: (val) {
                 if (val!.isEmpty) {
                   return 'Email is empty';
-                } else if (!emailRexExp.hasMatch(val)) {
+                } else if (!RegExp(r'^[\w-\.]+@([\w-]+.)+[\w-]{2,4}$')
+                    .hasMatch(val)) {
                   return 'Email is not valid';
                 }
                 return null;
               },
+            ),
+          ),
+          const SizedBox(height: 10),
+          SizedBox(
+            width: MediaQuery.of(context).size.width * 0.9,
+            child: MyTextField(
+              controller: passwordController,
+              hintText: 'Password',
+              obsecureText: obsecurePassword,
+              keyboardType: TextInputType.visiblePassword,
+              prefixIcon: const Icon(CupertinoIcons.lock_fill),
+              errorMsg: _errorMsg,
+              validator: (val) {
+                if (val!.isEmpty) {
+                  return 'Password is empty';
+                } else if (!RegExp(
+                        r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&~`)\%\-(_+=;:,.<>/?"[{\]}\|^]).{8,}$')
+                    .hasMatch(val)) {
+                  return 'Password is not valid';
+                }
+                return null;
+              },
+              suffixIcon: IconButton(
+                  onPressed: () {
+                    setState(() {
+                      obsecurePassword = !obsecurePassword;
+                      if (obsecurePassword) {
+                        iconPassword = CupertinoIcons.eye_fill;
+                      } else {
+                        iconPassword = CupertinoIcons.eye_slash_fill;
+                      }
+                    });
+                  },
+                  icon: Icon(iconPassword)),
             ),
           ),
         ],

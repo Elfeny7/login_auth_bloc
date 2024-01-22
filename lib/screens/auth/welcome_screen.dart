@@ -30,7 +30,7 @@ class _WelcomeScreenState extends State<WelcomeScreen>
           child: Stack(
             children: [
               Align(
-                alignment: const AlignmentDirectional(0, -1.5),
+                alignment: const AlignmentDirectional(0, -2),
                 child: Container(
                   width: MediaQuery.of(context).size.width,
                   height: MediaQuery.of(context).size.width,
@@ -40,7 +40,7 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                 ),
               ),
               Align(
-                alignment: const AlignmentDirectional(-1, -1.4),
+                alignment: const AlignmentDirectional(-1, -1.6),
                 child: Container(
                   width: MediaQuery.of(context).size.width / 2,
                   height: MediaQuery.of(context).size.width / 1.5,
@@ -50,7 +50,7 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                 ),
               ),
               Align(
-                alignment: const AlignmentDirectional(1, -1.4),
+                alignment: const AlignmentDirectional(1, -1.6),
                 child: Container(
                   width: MediaQuery.of(context).size.width / 2,
                   height: MediaQuery.of(context).size.width / 1.5,
