@@ -67,7 +67,7 @@ class _SignInScreenState extends State<SignInScreen> {
                 if (val!.isEmpty) {
                   return 'Password is empty';
                 } else if (!RegExp(
-                        r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&~`)\%\-(_+=;:,.<>/?"[{\]}\|^]).{8,}$')
+                        r'^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~`)\%\-(_+=;:,.<>/?"[{\]}\|^]).{8,}$')
                     .hasMatch(val)) {
                   return 'Password is not valid';
                 }

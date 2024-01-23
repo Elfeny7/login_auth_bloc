@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:login_auth_bloc/screens/auth/sign_in_screen.dart';
+import 'package:login_auth_bloc/screens/auth/sign_up_screen.dart';
 
 class WelcomeScreen extends StatefulWidget {
   const WelcomeScreen({super.key});
@@ -104,9 +105,9 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                       Expanded(
                         child: TabBarView(
                           controller: tabController,
-                          children: [
-                            const SignInScreen(),
-                            Container(),
+                          children: const [
+                            SignInScreen(),
+                            SignUpScreen(),
                           ],
                         ),
                       )
