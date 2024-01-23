@@ -19,6 +19,14 @@ class _SignInScreenState extends State<SignInScreen> {
   String? _errorMsg;
 
   @override
+  void dispose() {
+    passwordController.dispose();
+    emailController.dispose();
+    _formKey.currentState?.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Form(
       key: _formKey,
