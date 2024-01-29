@@ -58,4 +58,9 @@ class FirebaseUserRepo implements UserRepository {
       rethrow;
     }
   }
+
+  @override
+  Future<void> logOut() async {
+    await _firebaseAuth.signOut();
+  }
 }

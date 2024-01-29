@@ -9,7 +9,7 @@ sealed class SignInState extends Equatable {
 
 final class SignInInitial extends SignInState {}
 
-class SignInSucces extends SignInState {}
+class SignInSuccess extends SignInState {}
 
 class SignInFailure extends SignInState {
   final String? message;
