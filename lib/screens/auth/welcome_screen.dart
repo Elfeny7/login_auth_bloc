@@ -1,8 +1,13 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:login_auth_bloc/blocs/sign_up_bloc/sign_up_bloc.dart';
 import 'package:login_auth_bloc/screens/auth/sign_in_screen.dart';
 import 'package:login_auth_bloc/screens/auth/sign_up_screen.dart';
+
+import '../../blocs/authentication_bloc/authentication_bloc.dart';
+import '../../blocs/sign_in_bloc/sign_in_bloc.dart';
 
 class WelcomeScreen extends StatefulWidget {
   const WelcomeScreen({super.key});
@@ -105,9 +110,22 @@ class _WelcomeScreenState extends State<WelcomeScreen>
                       Expanded(
                         child: TabBarView(
                           controller: tabController,
-                          children: const [
-                            SignInScreen(),
-                            SignUpScreen(),
+                          children: [
+                            BlocProvider<SignInBloc>(
+                              create: (context) => SignInBloc(
+                                userRepository: context
+                                    .read<AuthenticationBloc>()
+                                    .userRepository,
+                              ),
+                              child: const SignInScreen(),
+                            ),
+                            BlocProvider<SignUpBloc>(
+                              create: (context) => SignUpBloc(
+                                  userRepository: context
+                                      .read<AuthenticationBloc>()
+                                      .userRepository),
+                              child: const SignUpScreen(),
+                            ),
                           ],
                         ),
                       )
