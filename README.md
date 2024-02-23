@@ -1,3 +1,3 @@
 # login with bloc
 
-A new Flutter project.
+Login firebase auth with bloc.
